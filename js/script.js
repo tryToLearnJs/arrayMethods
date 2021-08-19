@@ -28,9 +28,6 @@ console.log(colonOdd(numbers));
 // Удалить повторяющиеся элементы массива
 // Напишите функцию removeDuplicates(arr), которая возвращает массив, в котором удалены повторяющиеся элементы из массива arr (игнорируйте чувствительность к регистру)
 
-let array = [4, 6, 8, 9, 12, 53, -17, 2, 5, 7, 31, 97, -1, 17];
-let a = false;
-
 let arrayWithDuplicate = [1, 5, 5, 5, 6, 'sd', 'ds', 'Sd', 'ds', 'ds', 50, 5];
 
 function removeDuplicates(arr) {
