@@ -10,15 +10,14 @@ let result = [];
 
 function colonOdd(num) {
     splitNum = num.split('');
-    console.log(splitNum);
+    // console.log(splitNum);
 
     splitNum.forEach(function (item, index) {
-        if (index == splitNum.length - 1) {
-            result += item;
-        } else if ((item % 2 !== 0) && (splitNum[index + 1] % 2 !== 0)) {
+        const isOddPair = item % 2 !== 0 && splitNum[index + 1] % 2 !== 0;
+        if (isOddPair && index !== splitNum.length - 1) {
             result += item + ':';
         } else {
-            console.log(result, item, index);
+            //console.log(result, item, index);
             result += item;
         }
     });
@@ -26,28 +25,43 @@ function colonOdd(num) {
     return console.log(result);
 }
 
+console.log(colonOdd(numbers));
+
 // Удалить повторяющиеся элементы массива
 // Напишите функцию removeDuplicates(arr), которая возвращает массив, в котором удалены повторяющиеся элементы из массива arr (игнорируйте чувствительность к регистру)
 
-let arr = [5, 6, 5, 'sd', 'ds', 'Sd', 'ds', 50, 5];
+let array = [4, 6, 8, 9, 12, 53, -17, 2, 5, 7, 31, 97, -1, 17];
+let a = false;
 
-function removeDuplicates(array) {
-    let stringArray = array.map((item) => {
-        return item.toString();
-    });
+function isPrime(num) {
+    if (num <= 1)
+        return a;
+    else if (num === 2)
+        return a = true;
+    else {
+        for (let i = 2; i < num; i++)
+            if (num % i === 0)
+                return a;
+        return a = true;
+    }
+}
 
-    stringArray.forEach(function (item, index) {
-        for (let i = 1; i < stringArray.length; i++) {
-            if (stringArray[index].includes(stringArray[index + i])) {
-                stringArray.splice(index + i, 1);
-            } else {
-                stringArray[index] = item;
+console.log(isPrime(2));
+
+let arrayWithDuplicate = [1, 5, 5, 5, 6, 'sd', 'ds', 'Sd', 'ds', 'ds', 50, 5];
+
+function removeDuplicates(arr) {
+    let noDublicatesArray = arr.filter(function (item, index, arr) {
+        for (i = 1; i < arr.length; i++) {
+            if (item == arr[index + i]) {
+                return false;
             }
         }
+        return true;
     });
-    return stringArray;
+    return noDublicatesArray;
 }
-console.log(removeDuplicates(arr));
+console.log(removeDuplicates(arrayWithDuplicate));
 
 function removeDuplicates2(array) {
     let noDuplicate = array.filter(function (item, index) {
@@ -56,3 +70,18 @@ function removeDuplicates2(array) {
     return noDuplicate;
 }
 console.log(removeDuplicates2(arr));
+
+// Сумма элементов двух массивов
+// Напишите код, который создаёт массив элементов представляющих собой сумму соответствующих элементов заданных массивов.
+// var arr1 = [1, 2, 3, 4, 5];
+// var arr2 = [4, 5, 6];
+// Результат – // [5,7,9,4,5] (edited) 
+
+var arr1 = [1, 2, 3, 4, 5];
+var arr2 = [4, 5, 6];
+
+function sumArray(arr1, arr2) {
+    arr1.forEach(function (element, index) {
+
+    });
+}
