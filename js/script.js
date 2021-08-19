@@ -10,14 +10,12 @@ let result = [];
 
 function colonOdd(num) {
     splitNum = num.split('');
-    // console.log(splitNum);
 
     splitNum.forEach(function (item, index) {
         const isOddPair = item % 2 !== 0 && splitNum[index + 1] % 2 !== 0;
         if (isOddPair && index !== splitNum.length - 1) {
             result += item + ':';
         } else {
-            //console.log(result, item, index);
             result += item;
         }
     });
@@ -32,21 +30,6 @@ console.log(colonOdd(numbers));
 
 let array = [4, 6, 8, 9, 12, 53, -17, 2, 5, 7, 31, 97, -1, 17];
 let a = false;
-
-function isPrime(num) {
-    if (num <= 1)
-        return a;
-    else if (num === 2)
-        return a = true;
-    else {
-        for (let i = 2; i < num; i++)
-            if (num % i === 0)
-                return a;
-        return a = true;
-    }
-}
-
-console.log(isPrime(2));
 
 let arrayWithDuplicate = [1, 5, 5, 5, 6, 'sd', 'ds', 'Sd', 'ds', 'ds', 50, 5];
 
