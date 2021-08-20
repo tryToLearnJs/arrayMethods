@@ -51,6 +51,39 @@ function removeDuplicates2(array) {
 }
 console.log(removeDuplicates2(arr));
 
+function removeDuplicates3(arr) {
+    let emptyArr = [];
+    for (let a = 0; a <= arr.length; a++) {
+        emptyArr[a] = arr[a];
+        for (let index = 1; index < arr.length; index++) {
+            if (arr.some((arr[index]), [emptyArr[a]])) {
+                emptyArr.splice(a, 1);
+            }
+        }
+        return emptyArr;
+    }
+}
+console.log(removeDuplicates3(arrayWithDuplicate));
+
+function removeDuplicates4(arr) {
+    let arr2 = [];
+    arr2[0] = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        if (returnBooleanDuplicate(arr2, arr[i]) == false) {
+            arr2[i] = arr[i];
+        }
+    }
+    return arr2.filter(elm => elm != null);
+}
+
+console.log(removeDuplicates4(arrayWithDuplicate));
+
+function returnBooleanDuplicate(arr, value) {
+    return arr.some(function (arrVal) {
+        return value === arrVal;
+    });
+}
+
 // Сумма элементов двух массивов
 // Напишите код, который создаёт массив элементов представляющих собой сумму соответствующих элементов заданных массивов.
 // var arr1 = [1, 2, 3, 4, 5];
