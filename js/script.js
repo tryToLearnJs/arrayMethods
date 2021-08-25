@@ -3,7 +3,6 @@
 // которая принимает число num в качестве аргумента и вставляет двоеточие (:) между двумя нечетными числами.
 //  Например, если вводится число 55639217, то на выход должно быть 5:563:921:7. 
 
-
 let numbers = prompt('Введите многозначное число', 0);
 let splitNum;
 let result = [];
@@ -25,65 +24,6 @@ function colonOdd(num) {
 
 console.log(colonOdd(numbers));
 
-// Удалить повторяющиеся элементы массива
-// Напишите функцию removeDuplicates(arr), которая возвращает массив, в котором удалены повторяющиеся элементы из массива arr (игнорируйте чувствительность к регистру)
-
-let arrayWithDuplicate = [1, 5, 5, 5, 6, 'sd', 'ds', 'Sd', 'ds', 'ds', 50, 5];
-
-function removeDuplicates(arr) {
-    let noDublicatesArray = arr.filter(function (item, index, arr) {
-        for (i = 1; i < arr.length; i++) {
-            if (item == arr[index + i]) {
-                return false;
-            }
-        }
-        return true;
-    });
-    return noDublicatesArray;
-}
-console.log(removeDuplicates(arrayWithDuplicate));
-
-function removeDuplicates2(array) {
-    let noDuplicate = array.filter(function (item, index) {
-        return array.indexOf(item) == index;
-    });
-    return noDuplicate;
-}
-console.log(removeDuplicates2(arr));
-
-function removeDuplicates3(arr) {
-    let emptyArr = [];
-    for (let a = 0; a <= arr.length; a++) {
-        emptyArr[a] = arr[a];
-        for (let index = 1; index < arr.length; index++) {
-            if (arr.some((arr[index]), [emptyArr[a]])) {
-                emptyArr.splice(a, 1);
-            }
-        }
-        return emptyArr;
-    }
-}
-console.log(removeDuplicates3(arrayWithDuplicate));
-
-function removeDuplicates4(arr) {
-    let arr2 = [];
-    arr2[0] = arr[0];
-    for (let i = 1; i < arr.length; i++) {
-        if (returnBooleanDuplicate(arr2, arr[i]) == false) {
-            arr2[i] = arr[i];
-        }
-    }
-    return arr2.filter(elm => elm != null);
-}
-
-console.log(removeDuplicates4(arrayWithDuplicate));
-
-function returnBooleanDuplicate(arr, value) {
-    return arr.some(function (arrVal) {
-        return value === arrVal;
-    });
-}
-
 // Сумма элементов двух массивов
 // Напишите код, который создаёт массив элементов представляющих собой сумму соответствующих элементов заданных массивов.
 // var arr1 = [1, 2, 3, 4, 5];
@@ -93,8 +33,45 @@ function returnBooleanDuplicate(arr, value) {
 var arr1 = [1, 2, 3, 4, 5];
 var arr2 = [4, 5, 6];
 
-function sumArray(arr1, arr2) {
-    arr1.forEach(function (element, index) {
-
-    });
+let results = [];
+let count;
+if (arr1.length < arr2.length) {
+    count = arr2.length;
+} else {
+    count = arr1.length;
 }
+console.log(count);
+for (let i = 0; i < count; i++) {
+    if (arr1[i] === undefined) {
+        arr1.push(0);
+    } else {
+        if (arr2[i] === undefined) {
+            arr2.push(0);
+        }
+    }
+    results.push(arr1[i] + arr2[i]);
+}
+console.log(results);
+
+// Разворачивание массива массивов
+// Напишите функцию expand(arr), которая разворачивает вложенный массив любой глубины.
+// var arr1 = [1, [2,[3,[4]]]]; // 1,2,3,4
+// var arr2 = [1, [2], [3, [[4]]],[5,6]]; // 1,2,3,4,5,6
+
+var arr1 = [1, [2, [3, [4]]]];
+
+function expand(arr) {
+    let newArray = [];
+    let storage;
+
+    arr.forEach(item => {
+        if (Array.isArray(item)) {
+            storage = expand(item);
+            newArray = newArray.concat(storage);
+        } else {
+            newArray.push(item);
+        }
+    });
+    return newArray;
+}
+console.log(expand(arr1));
