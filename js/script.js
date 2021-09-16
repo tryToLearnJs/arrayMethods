@@ -34,22 +34,12 @@ var arr1 = [1, 2, 3, 4, 5];
 var arr2 = [4, 5, 6];
 
 let results = [];
-let count;
-if (arr1.length < arr2.length) {
-    count = arr2.length;
-} else {
-    count = arr1.length;
-}
-console.log(count);
+let count = Math.max(arr1.length, arr2.length);
+
 for (let i = 0; i < count; i++) {
-    if (arr1[i] === undefined) {
-        arr1.push(0);
-    } else {
-        if (arr2[i] === undefined) {
-            arr2.push(0);
-        }
-    }
-    results.push(arr1[i] + arr2[i]);
+    const num1 = arr1[i] || 0;
+    const num2 = arr2[i] || 0;
+    results.push(num1 + num2);
 }
 console.log(results);
 
@@ -61,17 +51,16 @@ console.log(results);
 var arr1 = [1, [2, [3, [4]]]];
 
 function expand(arr) {
-    let newArray = [];
-    let storage;
+    let result = [];
 
     arr.forEach(item => {
         if (Array.isArray(item)) {
-            storage = expand(item);
-            newArray = newArray.concat(storage);
+            const storage = expand(item);
+            result = result.concat(storage);
         } else {
-            newArray.push(item);
+            result.push(item);
         }
     });
-    return newArray;
+    return result;
 }
 console.log(expand(arr1));

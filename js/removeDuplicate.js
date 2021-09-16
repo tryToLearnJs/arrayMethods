@@ -40,11 +40,11 @@ console.log(removeDuplicates3(arrayWithDuplicate));
 
 function removeDuplicates4(arr) {
     let result = [];
-    let isDuplicate = function aaa(arr, value) {
+    let isDuplicate = function isDuplicate(arr, value) {
         return arr.some(arrVal => value === arrVal)
     };
 
-    for (let i = 1; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (!isDuplicate(result, arr[i])) {
             result.push(arr[i]);
         }
