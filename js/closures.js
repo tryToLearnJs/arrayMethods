@@ -43,11 +43,13 @@ console.log(notReplayNumber());
 // sum(5)(4)() === 9
 
 function sum(a) {
-    let c = a;
-
-    return function plus(b) {
-        return c += b;
-    }
-};
-
-console.log(sum(3)(4));
+    return function add(b) {
+        if (b) {
+            a = a + b;
+            return add;
+        } else {
+            return a;
+        }
+    };
+}
+console.log(sum(1)(2)(3)());
