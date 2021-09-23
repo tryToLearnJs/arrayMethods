@@ -44,7 +44,7 @@ console.log(notReplayNumber());
 
 function sum(a) {
     return function add(b) {
-        if (b) {
+        if (typeof b !== 'undefined') {
             a = a + b;
             return add;
         } else {
@@ -52,4 +52,4 @@ function sum(a) {
         }
     };
 }
-console.log(sum(1)(2)(3)());
+console.log(sum(1)(0)(3)());
